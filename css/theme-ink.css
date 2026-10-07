@@ -1,0 +1,21 @@
+/* theme-ink.css
+   Oscuro cálido: carbón con matiz de tinta y un acento dorado, como el sello de
+   un documento firmado. Opaco, sin desenfoque. */
+
+[data-theme="ink"] {
+  --color-bg: #151311;
+  --color-sidebar-bg: #1B1816;
+  --color-surface: #211E1B;
+  --color-surface-hover: #2B2723;
+  --color-surface-active: #3A3020;
+  --color-border: #332E29;
+  --color-text: #F0EBE3;
+  --color-text-muted: #A39A8E;
+  --color-accent: #E3B45B;
+  --color-on-accent: #1F1607;
+  --color-danger: #F08A78;
+
+  --sidebar-blur: none;
+  --card-blur: none;
+  --color-preview-bg: #211E1B;
+}

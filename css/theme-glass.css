@@ -1,0 +1,28 @@
+/* theme-glass.css
+   Base nocturna profunda, paneles translúcidos con desenfoque real,
+   acento cian-verdoso usado con moderación (no acid-green genérico). */
+
+[data-theme="glass"] {
+  --color-bg: #0F1420;
+  --color-popup-bg: #1A2230;
+  --color-sidebar-bg: rgba(255, 255, 255, 0.04);
+  --color-surface: rgba(255, 255, 255, 0.055);
+  --color-surface-hover: rgba(255, 255, 255, 0.09);
+  --color-surface-active: rgba(94, 234, 212, 0.12);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-text: #EDEFF5;
+  --color-text-muted: #9AA1B4;
+  --color-accent: #5EEAD4;
+  --color-on-accent: #0F1420;
+  --color-danger: #F3897A;
+
+  --sidebar-blur: blur(18px);
+  --card-blur: blur(14px);
+  --color-preview-bg: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="glass"] body {
+  background-image: radial-gradient(circle at 15% 10%, rgba(94, 234, 212, 0.08), transparent 40%),
+                     radial-gradient(circle at 85% 90%, rgba(94, 100, 234, 0.10), transparent 45%);
+  background-attachment: fixed;
+}

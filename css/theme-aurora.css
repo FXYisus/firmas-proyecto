@@ -1,0 +1,21 @@
+/* theme-aurora.css
+   Oscuro SÓLIDO con base violeta-ciruela (sin desenfoque, distinto de glass y modern).
+   Acento lavanda para acciones y estado activo; el resto queda en tonos discretos. */
+
+[data-theme="aurora"] {
+  --color-bg: #120F1F;
+  --color-sidebar-bg: #181428;
+  --color-surface: #1E1934;
+  --color-surface-hover: #282146;
+  --color-surface-active: #33285C;
+  --color-border: #2E2750;
+  --color-text: #ECE9F8;
+  --color-text-muted: #9A93B8;
+  --color-accent: #A78BFA;
+  --color-on-accent: #170F33;
+  --color-danger: #F58C96;
+
+  --sidebar-blur: none;
+  --card-blur: none;
+  --color-preview-bg: #1E1934;
+}

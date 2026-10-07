@@ -1,0 +1,148 @@
+/* tokens.css — valores compartidos por TODOS los temas.
+   Cada tema (minimal / glass) sobreescribe únicamente las variables de color. */
+
+:root {
+  /* Tipografía: una sola familia, dos pesos con roles claros.
+     Fuente humanista para UI de trabajo prolongado — no un display llamativo. */
+  --font-ui: "Inter", "Public Sans", system-ui, -apple-system, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 19px;
+  --font-size-xl: 26px;
+  --line-height-base: 1.5;
+
+  /* Espaciado — escala de 4px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Layout */
+  --sidebar-width: 232px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Transiciones — solo para cambios de estado, no decorativas */
+  --transition-fast: 120ms ease;
+  --transition-theme: 200ms ease;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font-ui);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background var(--transition-theme), color var(--transition-theme);
+}
+
+#app {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+button:hover { border-color: var(--color-accent); }
+button.primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  width: 100%;
+}
+
+select {
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  background: var(--color-bg);/*
+  border: 1px solid var(--color-border);*/
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-6) var(--space-2) var(--space-3);
+  width: 100%;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236F6F6C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  background-size: 16px;
+  transition: background-position var(--transition-fast), border-color var(--transition-fast);
+}
+
+select,
+select::picker(select) {
+  appearance: base-select;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+select::picker-icon {
+  display: none;
+}
+
+select:open {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2333406B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+selectedcontent .icon {
+  display: none;
+}
+
+option {
+  padding: var(--space-3) ;
+}
+
+option::checkmark {
+  font-family: 'DaddyTimeMono Nerd Font';
+  order: 1;
+  margin-left: auto;
+  margin-right: var(--space-2);
+  content: "";
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+/* accesibilidad: respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

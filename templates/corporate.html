@@ -1,0 +1,37 @@
+<!-- Plantilla CORPORATIVA
+     Diseñada como tabla de 2 columnas con "stack" vertical en pantallas
+     angostas vía media query soportada por Gmail/Apple Mail (no por Outlook
+     de escritorio, que ignora <style> — por eso el layout de tabla ya
+     funciona razonablemente bien sin depender del media query). -->
+<table cellpadding="0" cellspacing="0" border="0" width="480" style="font-family: 'Segoe UI', Arial, sans-serif; color:#101828;">
+  <tr>
+    <td width="90" style="vertical-align:top; padding-right:16px;">
+      <img src="{{logo}}" width="72" height="72" alt="{{empresa}}" style="border-radius:8px; display:block;" />
+    </td>
+    <td style="vertical-align:top; border-left:1px solid #E4E7EC; padding-left:16px;">
+      <div style="font-size:17px; font-weight:700; color:#101828;">{{nombre}}</div>
+      <div style="font-size:13px; color:#475467; margin-top:2px;">{{cargo}} · {{empresa}}</div>
+
+      <table cellpadding="0" cellspacing="0" border="0" style="margin-top:10px; font-size:12px; color:#475467;">
+        <tr><td style="padding:2px 0;">📞 {{telefono}}</td></tr>
+        <tr><td style="padding:2px 0;">✉️ <a href="mailto:{{correo}}" style="color:#2F5FB3; text-decoration:none;">{{correo}}</a></td></tr>
+        <tr><td style="padding:2px 0;">🌐 <a href="{{web}}" style="color:#2F5FB3; text-decoration:none;">{{web}}</a></td></tr>
+      </table>
+
+      <div style="margin-top:8px;">{{redes}}</div>
+      <div style="margin-top:6px; font-size:12px; color:#475467;">{{campos_personalizados}}</div>
+    </td>
+  </tr>
+</table>
+
+<style>
+  body { margin: 16px; }
+  .cf-row { margin-top: 2px; }
+  .cf-label { color:#475467; }
+  .cf-tag { background:#EEF2FF; color:#2F5FB3; padding:2px 8px; border-radius:999px; font-size:11px; }
+  .social-link { margin-right: 10px; color:#2F5FB3; text-decoration:none; font-size:12px; }
+
+  @media (max-width: 420px) {
+    table[width="480"] { width: 100% !important; }
+  }
+</style>

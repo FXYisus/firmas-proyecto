@@ -1,0 +1,505 @@
+/* layout.css — estructura de los componentes. Todo el color viene de variables
+   definidas por el tema activo (theme-minimal.css / theme-glass.css). */
+
+.sidebar {
+  background: var(--color-sidebar-bg);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-5) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  backdrop-filter: var(--sidebar-blur, none);
+  /*margin: var(--space-4) var(--space-3);
+  border-radius: var(--space-4);
+  box-shadow: 0 1px 15px var(--color-surface);*/
+}
+
+.brand {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 0 var(--space-2);
+}
+.brand span { color: var(--color-accent); }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--space-5);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: background var(--transition-fast), color var(--transition-fast), padding var(--transition-theme),
+  font-weight var(--transition-fast);
+}
+.nav-item:hover { background: var(--color-surface-hover); color: var(--color-text); }
+.nav-item.active {
+  background: var(--color-surface-active);
+  color: var(--color-text);
+  box-shadow: inset 0 2px 15px var(--color-text-muted),
+              inset 3px 0 2px var(--color-accent);
+  padding-left: calc(var(--space-3) + 6px);
+  font-weight: bold;
+  /*border-left: 3px solid var(--color-accent);*/
+}
+
+.theme-switch {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+.theme-switch label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.main {
+  overflow-y: auto;
+  padding: var(--space-6) var(--space-7);
+}
+
+.header-greeting {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+.header-greeting h1 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin: 0;
+}
+.header-greeting .subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-1);
+}
+
+.view {
+  display: none;
+  cursor: pointer;
+}
+.view.active { display: block; }
+
+/* --- Dashboard --- */
+.status-filters { display: flex; gap: var(--space-2); margin-bottom: var(--space-5); }
+.status-chip {
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+}
+.status-chip.active { border-color: var(--color-accent); color: var(--color-text); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+.sig-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  backdrop-filter: var(--card-blur, none);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.sig-card:hover { border-color: var(--color-accent); transform: translateY(-1px); }
+.sig-card .name { font-weight: 600; margin-bottom: var(--space-1); }
+.sig-card .meta { font-size: var(--font-size-xs); color: var(--color-text-muted); }
+.sig-card .status-tag {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-size: 11px;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-active);
+  color: var(--color-text-muted);
+}
+
+.empty-state {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-7);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* --- Editor --- */
+.editor-split {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--space-5);
+  height: calc(100vh - 220px);
+}
+.editor-form {
+  overflow-y: scroll;
+  padding-right: var(--space-3);
+  padding-left: var(--space-2);
+}
+.field-group { margin-bottom: var(--space-4); }
+.field-group label {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.custom-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.custom-field-row .drag-handle { cursor: grab; color: var(--color-text-muted); }
+.custom-field-row .remove-field { color: var(--color-danger); border: none; background: none; }
+
+.preview-pane {
+  background: var(--color-preview-bg, var(--color-surface));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  display: flex;
+  flex-direction: column;
+}
+.preview-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.preview-buttons {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.preview-icon_button {
+  background-color: var(--color-border);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.preview-icon_button:nth-of-type(2n) {
+  background-color: var(--color-accent);
+}
+
+
+.preview-icon_button:nth-of-type(3n) {
+  background-color: var(--color-danger);
+}
+
+.preview-pane .preview-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+.preview-pane iframe {
+  margin: var(--space-2) 0;
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+}
+
+.editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.editor-toolbar select {
+  width: auto;
+  min-width: 140px;
+}
+
+.editor-toolbar option::checkmark {
+  content: "";
+}
+
+.editor-toolbar .actions {
+  display: flex;
+  gap: var(--space-2); }
+
+/* --- Plantillas --- */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+.template-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.template-card .thumb { height: 110px; background: #fff; }
+.template-card .info { padding: var(--space-3); }
+
+/* ==========================================================
+   AÑADIDOS: sidebar con íconos, perfil, lista de temas,
+   tarjeta hero y fila de métricas.
+   ========================================================== */
+
+/* --- Íconos SVG ---
+   .icon es el tamaño base. currentColor hace que el ícono tome
+   automáticamente el color del texto de su contenedor, así no hay
+   que redefinir colores por tema. */
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;           /* evita que el ícono se aplaste si falta espacio */
+  stroke: currentColor;
+  fill: none;
+}
+
+/* --- Marca --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.brand-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+}
+
+/* --- Bloque de perfil (nombre + estado) --- */
+.profile-block {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  backdrop-filter: var(--card-blur, none);
+}
+.profile-in {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-1);
+}
+.profile-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.profile-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+/* El puntito verde de "activo" */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* --- Lista de temas (reemplaza al <select>) --- */
+.theme-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.theme-option:hover { background: var(--color-surface-hover); color: var(--color-text); }
+.theme-option .theme-name { flex: 1; }   /* empuja el check hasta la derecha */
+.theme-option .swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+/* El check solo se ve en el tema seleccionado */
+.theme-option .check { opacity: 0; color: var(--color-accent); }
+.theme-option.active { color: var(--color-text); }
+.theme-option.active .check { opacity: 1; }
+
+/* --- Tarjeta hero (bienvenida) --- */
+.hero-card {
+  position: relative;
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  backdrop-filter: var(--card-blur, none);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  background: var(--color-surface-active);
+  color: var(--color-text-muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+.hero-card h2 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.hero-card p {
+  margin: 0 0 var(--space-4);
+  max-width: 60ch;               /* línea legible, no se estira infinito */
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* --- Fila de métricas --- */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.metric-card {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  backdrop-filter: var(--card-blur, none);
+}
+.metric-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-muted);
+}
+.metric-label {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.metric-value {
+  display: flex;
+  align-items: baseline;      /* alinea el número grande con el texto chico */
+  gap: var(--space-2);
+}
+.metric-value strong {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+/* Cuando el valor es una palabra (ej. "Minimalista") y no un número grande */
+.metric-value strong.is-text {
+  font-size: var(--font-size-lg);
+}
+.metric-value span {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+}
+.metric-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+.metric-foot .icon { width: 13px; height: 13px; }
+
+/* --- Contadores dentro de los chips de estado --- */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.status-chip .count {
+  font-weight: 600;
+  color: var(--color-text);
+  opacity: 0.55;
+}
+.status-chip.active .count { color: var(--color-accent); opacity: 1; }
+
+/* ==========================================================
+   AÑADIDOS parte 3: pestañas Personal/Empresa/Contacto/Social
+   del formulario del editor.
+   ========================================================== */
+
+.tab-bar {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-4);
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.tab-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  padding: var(--space-2) var(--space-1);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.tab-btn:hover { color: var(--color-text); }
+.tab-btn.active {
+  background: var(--color-surface-active);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Cada grupo de campos empieza oculto; solo se muestra el que tiene .active.
+   Los <input> nunca se destruyen al cambiar de pestaña, así que el valor
+   que escribiste en "Personal" sigue ahí aunque no lo estés viendo. */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.custom-fields-section {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}

@@ -1,0 +1,21 @@
+/* theme-minimal.css
+   Líneas limpias, alto contraste, cero decoración. Base papel frío (no crema/terracota),
+   un único acento índigo profundo reservado para acción y estado activo. */
+
+[data-theme="minimal"] {
+  --color-bg: #F6F6F4;
+  --color-popup-bg: #FFFFFF;
+  --color-sidebar-bg: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #EFEFEC;
+  --color-surface-active: #E8E9F2;
+  --color-border: #DEDDD7;
+  --color-text: #1B1C1E;
+  --color-text-muted: #6F6F6C;
+  --color-accent: #33406B;
+  --color-on-accent: #FFFFFF;
+  --color-danger: #B3432B;
+
+  --sidebar-blur: none;
+  --card-blur: none;
+}

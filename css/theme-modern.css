@@ -1,0 +1,24 @@
+/* theme-modern.css — "Midnight Slate"
+   Variante oscura SÓLIDA (no translúcida como glass): superficies opacas de
+   pizarra azulada, sin desenfoque. Pensado para quien quiere modo oscuro
+   pero sin el efecto de vidrio. Mismo acento verde-menta para coherencia. */
+
+[data-theme="modern"] {
+  --color-bg: #0B0F14;
+  --color-popup-bg: #161C25;
+  --color-sidebar-bg: #11161D;
+  --color-surface: #161C25;
+  --color-surface-hover: #1E2631;
+  --color-surface-active: #14312B;
+  --color-border: #232C38;
+  --color-text: #E6EAF0;
+  --color-text-muted: #8A94A6;
+  --color-accent: #2DD4A7;
+  --color-on-accent: #05120E;
+  --color-danger: #F3897A;
+
+  /* sin desenfoque: este tema es opaco a propósito */
+  --sidebar-blur: none;
+  --card-blur: none;
+  --color-preview-bg: #161C25;
+}

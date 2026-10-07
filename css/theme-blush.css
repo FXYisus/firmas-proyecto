@@ -1,0 +1,22 @@
+/* theme-blush.css
+   Claro y cálido-rosado: fondo rubor muy suave, superficies blancas y acento
+   frambuesa (magenta frío, no terracota). El peligro va en rojo-naranja para
+   que no se confunda con el acento. */
+
+[data-theme="blush"] {
+  --color-bg: #FBF2F4;
+  --color-sidebar-bg: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F6E6EA;
+  --color-surface-active: #F9DCE5;
+  --color-border: #EBD5DB;
+  --color-text: #2A1A21;
+  --color-text-muted: #755F69;
+  --color-accent: #B5285E;
+  --color-on-accent: #FFFFFF;
+  --color-danger: #B93815;
+
+  --sidebar-blur: none;
+  --card-blur: none;
+  --color-preview-bg: #FFFFFF;
+}

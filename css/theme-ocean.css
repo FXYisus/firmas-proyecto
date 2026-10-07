@@ -1,0 +1,21 @@
+/* theme-ocean.css
+   Claro y fresco: fondo azul-hielo, superficies blancas y un acento azul petróleo
+   con buen contraste sobre blanco. Pensado para trabajar horas con documentos. */
+
+[data-theme="ocean"] {
+  --color-bg: #EAF3F7;
+  --color-sidebar-bg: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #E1EEF4;
+  --color-surface-active: #D4EAF3;
+  --color-border: #CFDFE7;
+  --color-text: #12242E;
+  --color-text-muted: #566B77;
+  --color-accent: #0E7490;
+  --color-on-accent: #FFFFFF;
+  --color-danger: #B93A32;
+
+  --sidebar-blur: none;
+  --card-blur: none;
+  --color-preview-bg: #FFFFFF;
+}
